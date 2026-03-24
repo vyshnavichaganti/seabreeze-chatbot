@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seabreeze by Godrej Bayview – Property Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">SB</div>
+  <div class="header-text">
+    <h1>Seabreeze · Godrej Bayview</h1>
+    <p>Vashi, Navi Mumbai · Virtual Property Guide</p>
+  </div>
+  <div class="status-dot">
+    <div class="dot"></div>
+    <span>Live</span>
+  </div>
+</header>
+
+<div class="chat-wrap">
+  <div class="project-pill">🌊 Exclusive Tower · Sector 9, Vashi</div>
+  <div id="messages"></div>
+</div>
+
+<div class="input-bar">
+  <div class="input-inner">
+    <textarea id="userInput" rows="1" placeholder="Ask about pricing, amenities, location…"></textarea>
+    <button id="sendBtn" onclick="sendMessage()">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+  <p class="disclaimer">Built by Vyshavani Reddy · Propello AI Internship Assignment</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
