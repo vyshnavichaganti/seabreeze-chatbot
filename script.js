@@ -1,5 +1,4 @@
 
-const API_KEY = "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";
 const SYSTEM_PROMPT = `You are Nova, a warm, professional property consultant for Seabreeze by Godrej Bayview, an ultra-luxury residential tower in Sector 9, Vashi, Navi Mumbai.
 
 YOUR GOAL: Help prospects understand the project, answer their questions, and gently capture lead details — Name, Budget, and Preferred Configuration (2 BHK or 3 BHK).
@@ -109,24 +108,16 @@ function showChips() {
   wrap.appendChild(div);
   wrap.scrollTop = wrap.scrollHeight;
 }
-
 async function callGroq(userText) {
   history.push({ role: 'user', content: userText });
   showTyping();
   try {
-    const resp = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    const resp = await fetch('/.netlify/functions/chat', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
-        max_tokens: 1000,
-        messages: [
-          { role: 'system', content: SYSTEM_PROMPT },
-          ...history
-        ]
+        system: SYSTEM_PROMPT,
+        messages: history
       })
     });
     const data = await resp.json();
@@ -140,6 +131,7 @@ async function callGroq(userText) {
     addMessage('bot', "I'm having a connectivity issue. Please refresh and try again.");
   }
 }
+
 
 async function sendMessage(overrideText) {
   const input = document.getElementById('userInput');
